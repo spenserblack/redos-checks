@@ -1,0 +1,8 @@
+{
+  "catastrophes": [
+    {
+      "regex": "^(a|a)*$",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab"
+    }
+  ]
+}
