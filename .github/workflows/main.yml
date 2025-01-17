@@ -1,0 +1,33 @@
+name: ReDoS Checks
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  javascript:
+    name: JavaScript
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: latest
+      - name: Check for ReDoS
+        run: ./javascript/index.cjs
+        timeout-minutes: 1
+
+  python:
+    name: Python
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Check for ReDoS
+        run: ./python/__main__.py
+        timeout-minutes: 1
